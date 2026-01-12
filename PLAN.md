@@ -1,0 +1,38 @@
+# roucas_cli - PLAN (v1)
+
+## Objectif v1
+Implemeter une CLI en C pour gere un stock de produits via un fichier CSV.
+
+## Milestones
+
+### M0 - Repo ready
+- [x] SPEC.md push
+
+### M1 - Project skeleton
+- [ ] README.md minimal
+- [ ] .gitignore
+- [ ] folders: src/, include/, data/
+
+### M2 - Data model
+- [ ] define `t_product`
+- [ ] choose in-memory container (linked list)
+- [ ] define CSV line format
+
+### M3 - CSV I/O
+- [ ] load CSV into memory
+- [ ] save memory to CSV (rewrite file)
+
+### M4 - Commands
+- [ ] `list`
+- [ ] `add`
+- [ ] `sell`
+- [ ] `restock`
+- [ ] `low`
+
+### M5 - Errors & UX
+- [ ] argument parsing + `--help`
+- [ ] clear error messages + non-zero exit codes
+
+### M6 - Polish
+- [ ] examples in README
+- [ ] sample `data/stock.csv`
