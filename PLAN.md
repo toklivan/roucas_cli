@@ -9,14 +9,14 @@ Implemeter une CLI en C pour gere un stock de produits via un fichier CSV.
 - [x] SPEC.md push
 
 ### M1 - Project skeleton
-- [ ] README.md minimal
-- [ ] .gitignore
-- [ ] folders: src/, include/, data/
+- [x] README.md minimal
+- [x] .gitignore
+- [x] folders: src/, include/, data/
 
 ### M2 - Data model
-- [ ] define `t_product`
-- [ ] choose in-memory container (linked list)
-- [ ] define CSV line format
+- [x] define `t_product`
+- [x] choose in-memory container (linked list)
+- [x] define CSV line format
 
 ### M3 - CSV I/O
 - [ ] load CSV into memory
