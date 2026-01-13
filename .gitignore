@@ -1,0 +1,21 @@
+# build artifacts
+*.o
+*.a
+*.so
+*.out
+roucas-cli
+
+# debug / tools
+*.dSYM/
+vgcore.*
+*.log
+
+# editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
