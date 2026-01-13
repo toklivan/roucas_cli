@@ -1,4 +1,4 @@
-# rocas_cli
+# roucas_cli
 
 A small C command-line tool to manage a product stock stored in a CSV file.
 
