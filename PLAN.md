@@ -1,7 +1,7 @@
 # roucas_cli - PLAN (v1)
 
 ## Objectif v1
-Implemeter une CLI en C pour gere un stock de produits via un fichier CSV.
+Implemeter une CLI en C pour gerer un stock de produits via un fichier CSV.
 
 ## Milestones
 
@@ -19,7 +19,7 @@ Implemeter une CLI en C pour gere un stock de produits via un fichier CSV.
 - [x] define CSV line format
 
 ### M3 - CSV I/O
-- [ ] load CSV into memory
+- [x] load CSV into memory
 - [ ] save memory to CSV (rewrite file)
 
 ### M4 - Commands
