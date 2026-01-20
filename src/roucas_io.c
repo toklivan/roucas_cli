@@ -23,11 +23,19 @@ int	load_products(const char *path, t_product **products)
 		return (1);
 	}
 	buffer[strcspn(buffer, "\n")] = '\0';
-	if (strcmp(buffer, "id,name,category,buy_price,sell_price,stock,low_threshold") != 0)
+	if (strcmp(buffer,
+			"id,name,category,buy_price,sell_price,stock,low_threshold") != 0)
 	{
 		fprintf(stderr, "roucas_cli: invalid CSV header\n");
 		fclose(fp);
 		return (1);
+	}
+	while (fgets(buffer, sizeof(buffer), fp))
+	{
+		buffer[strcspn(buffer, "\n")] = '\0';
+		if (buffer[0] == '\0')
+			continue ;
+		printf("CSV line: %s\n", buffer);
 	}
 	fclose(fp);
 	return (0);
