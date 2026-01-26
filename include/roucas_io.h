@@ -6,6 +6,6 @@
 int			load_products(const char *path, t_product **products);
 int			save_products(const char *path, t_product *products);
 void		free_products(t_product *products);
-t_product	*find_product_by_id(const char *id, t_product *products);
+t_product	*find_product_by_id(t_product *products, const char *id);
 
 #endif

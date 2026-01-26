@@ -2,7 +2,7 @@
 #include <string.h>
 #include "roucas_io.h"
 
-t_product   *find_product_by_id(const char *id, t_product *products)
+t_product   *find_product_by_id(t_product *products, const char *id)
 {
     if (!id)
         return NULL;
