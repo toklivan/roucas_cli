@@ -6,7 +6,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 INCLUDES = -Iinclude
 
-SRC = src/main.c src/roucas_io.c src/products_utils.c
+SRC = src/main.c src/roucas_io.c src/products_utils.c src/product_factory.c \
+src/parse_utils.c src/csv_utils.c src/load_products.c
 
 OBJ = $(SRC:.c=.o)
 

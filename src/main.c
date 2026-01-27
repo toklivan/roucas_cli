@@ -1,19 +1,32 @@
 #include "roucas_io.h"
 #include <stdio.h>
 
-int	main(void)
-{
-	t_product	*products;
-	int			status;
+/*
+** Usage: 
+** - ./roucas_cli 			-> charge data/stock.csv
+** - ./roucas_cli path.csv 	-> charge path.csv
+**
+** Retour:
+** - 0 si OK
+** - 1 si erreur (load_products a echoue)
+*/
 
-	products = NULL;
-	status = load_products("data/stock.csv", &products);
-	if (status != 0)
+int	main(int ac, char **av)
+{
+	const char	*path;
+	t_product	*products;
+
+	path = "data/stock.csv";
+	if (ac == 2)
+		path = av[1];
+	else if (ac > 2)
 	{
-		fprintf(stderr, "roucas_cli: failed to load CSV\n");
+		fprintf(stderr, "usage: %s [path_to_csv]\n", av[0]);
 		return (1);
 	}
-	printf("roucas_cli: CSV loaded successfully (WIP)\n");
+	products = NULL;
+	if (load_products(path, &products) != 0)
+		return (1);
 	free_products(products);
 	return (0);
 }
