@@ -29,10 +29,10 @@ make -s re || exit 1
 
 fail=0
 
-run_test "tests/ok.csv" "ok" || fail=1
-run_test "tests/bad_header.csv" "fail" || fail=1
-run_test "tests/bad_cols.csv" "fail" || fail=1
-run_test "tests/bad_number.csv" "fail" || fail=1
-run_test "tests/dup_id.csv" "fail" || fail=1
+run_test "tests/csv/ok.csv" "ok" || fail=1
+run_test "tests/csv/bad_header.csv" "fail" || fail=1
+run_test "tests/csv/bad_cols.csv" "fail" || fail=1
+run_test "tests/csv/bad_number.csv" "fail" || fail=1
+run_test "tests/csv/dup_id.csv" "fail" || fail=1
 
 exit $fail
