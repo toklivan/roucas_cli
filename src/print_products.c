@@ -1,29 +1,30 @@
-#include <stdio.h>
 #include "roucas_io.h"
+#include <stdio.h>
 
 /*
 ** print_products
-** 
+**
 ** Role:
-** - Afficher une liste de produits sous forme de tableau simple.
+**
+	- Afficher la liste des produits sous forme de tableau simple sous forme de tableau aligne.
 **
 ** Notes:
-** - N'alloue rien, ne modifie pas la liste>
-** - Si products == NULL, affiche uniquement l'en tete.
+** - Largeurs fixes pour un affichage lisible en terminal.
+** - Ne modifie pas la liste, n'alloue rien.
 */
-void    print_products(t_product *products)
+void	print_products(t_product *products)
 {
-    printf("ID\t\tNAME\t\tCATEGORY\tBUY\tSELL\tSTOCK\tLOW\n");
-    while (products)
-    {
-        printf("%s\t%s\t%s\t%.2f\t%.2f\t%d\t%d\n",
-            products->id,
-            products->name,
-            products->category,
-            products->buy_price,
-            products->sell_price,
-            products->stock,
-            products->low_threshold);
-        products = products->next;
-    }
+	/* En-tete */
+	printf("%-10s  %-15s  %-15s  %7s  %7s  %7s  %5s\n", "ID", "NAME",
+		"CATEGORY", "BUY", "SELL", "STOCK", "LOW");
+	/* Ligne de separation */
+	printf("-------------------------------------------------------------------------------\n");
+	/* Lignes produits */
+	while (products)
+	{
+		printf("%-10s  %-15s  %-15s  %7.2f  %7.2f  %7d  %5d\n", products->id,
+			products->name, products->category, products->buy_price,
+			products->sell_price, products->stock, products->low_threshold);
+		products = products->next;
+	}
 }
