@@ -24,6 +24,30 @@ run_test() {
   return 1
 }
 
+# Exécute une commande du binaire + un fichier CSV, et vérifie ok/fail.
+# Usage: run_cmd_test "list" "tests/csv/ok.csv" "ok"
+run_cmd_test() {
+  cmd="$1"
+  file="$2"
+  expected="$3"  # "ok" ou "fail"
+
+  $BIN "$cmd" "$file" >/dev/null 2>&1
+  code=$?
+
+  if [ "$expected" = "ok" ] && [ $code -eq 0 ]; then
+    echo "[OK]   $cmd $file"
+    return 0
+  fi
+
+  if [ "$expected" = "fail" ] && [ $code -ne 0 ]; then
+    echo "[OK]   $cmd $file (expected fail)"
+    return 0
+  fi
+
+  echo "[FAIL] $cmd $file (exit=$code expected=$expected)"
+  return 1
+}
+
 # Build d'abord
 make -s re || exit 1
 
@@ -34,5 +58,9 @@ run_test "tests/csv/bad_header.csv" "fail" || fail=1
 run_test "tests/csv/bad_cols.csv" "fail" || fail=1
 run_test "tests/csv/bad_number.csv" "fail" || fail=1
 run_test "tests/csv/dup_id.csv" "fail" || fail=1
+run_cmd_test "list"  "tests/csv/ok.csv"         "ok"   || fail=1
+run_cmd_test "list"  "tests/csv/bad_number.csv" "fail" || fail=1
+run_cmd_test "stats" "tests/csv/ok.csv"         "ok"   || fail=1
+run_cmd_test "stats" "tests/csv/bad_number.csv" "fail" || fail=1
 
 exit $fail
